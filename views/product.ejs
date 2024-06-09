@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+  <div id="main" class="w-full relative h-screen bg-zinc-100">
+    <div id="nav" class="w-full flex items-center justify-between  h-[13vh] border-2 border-b-zinc-700 py-4 px-10 pb-5">
+        <div class="flex items-center">
+            <h3 class="text-2xl text-black font-semibold">Cart.</h3>
+        </div>
+        <div class="px-3 flex gap-20 text-black font-semibold">
+            <div class="flex gap-5">
+                <a href="">Home</a>
+                <a href="">Products</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="item-details" class="w-full flex flex-wrap gap-5 px-10 py-8 h-[87vh]">
+        <div id="item-photo" class="w-[30vw] h-[55vh] rounded-sm overflow-hidden">
+            <div id="top-part" class="w-full h-[70%] bg-blue-200 p-4">
+                <img src="../images/bag.png" class="w-full h-full object-contain" alt="">
+            </div>
+            <div id="bottom-part-1" class="w-full flex items-center justify-between px-8 h-[15%] bg-blue-400">
+                <h2 class="font-semibold text-xl text-blue-700">Clinge Bag</h2>
+                <div class="flex item-center gap-1" id="buttons">
+                    <div class="w-6 h-6 bg-white rounded-full flex justify-center items-center"><i class="ri-add-line font-light"></i></div>
+                    <div class="w-6 h-6 bg-white flex justify-center items-center text-sm">01</div>
+                    <div class="w-6 h-6 bg-white rounded-full flex justify-center items-center"><i class="ri-subtract-fill"></i></div>
+                </div>
+            </div>
+            <div id="bottom-part-2" class="w-full flex items-center justify-between px-8 h-[15%] bg-blue-500">
+                <h2 class="font-semibold text-lg text-blue-800">Net Total</h2>
+                <h2 class="font-semibold">&#8377 1200</h2>
+            </div>
+        </div>
+        <div id="item-pricing" class="w-[60vw]">
+            <h2 class="leading-4 font-semibold text-xl">Price Breakdown</h2>
+            <div id="price-breakdown" class="py-6 px-3 flex gap-20">
+                <div id="price-category" class="flex flex-col gap-3">
+                    <h3 class="font-semibold text-md">Total MRP</h3>
+                    <h3 class="font-semibold text-md">Discount on MRP</h3>
+                    <h3 class="font-semibold text-md">Platform Fee</h3>
+                    <h3 class="font-semibold text-md">Shipping Fee</h3>
+                </div>
+                <div id="price" class="flex flex-col gap-3">
+                    <h3 class="font-semibold text-md">&#8377 1920</h3>
+                    <h3 class="font-semibold text-md">&#8377 0</h3>
+                    <h3 class="font-semibold text-md">&#8377 20</h3>
+                    <h3 class="font-semibold text-md">FREE</h3>
+                </div>
+            </div>
+            <hr class="border-[1px] border-zinc-300">
+            <div class="flex gap-20 py-6 font-semibold text-xl">
+                <h2>Total Amount</h2>
+                <h2 class="text-green-500">&#8377 1927</h2>
+            </div>
+
+            <a href="" class="px-6 py-2 bg-black text-white rounded-md">Place Order</a>
+        </div>
+
+    </div>
+
+    
+  </div>
+</body>
+</html>

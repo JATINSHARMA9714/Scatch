@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="main" class="w-full relative h-screen bg-zinc-100">
+    <div id="nav" class="absolute top-0 left-0 w-full px-[13vw] py-4">
+        <h1 class="font-semibold text-black text-xl">Scatch</h1>
+    </div>
+    <div id="center-part" class="w-full h-full flex justify-center">
+        <div id="box-1" class="h-full w-[30vw] bg-zinc-300 flex items-center justify-center p-10">
+            <div id="sign-in-page" class="w-full h-[40vh] p-2">
+                <h2 class="text-4xl ">welcome to <span class="text-blue-500">Scatch</span></h2>
+                <h3 class="text-xl mt-2 font-semibold">Create your account</h3>
+                <form action="/signup" class="my-4 font-semibold text-zinc-700" method="post">
+                    <input class="p-3 block w-full my-3 rounded-sm outline-none" type="text" placeholder="Full Name" name="fullname">
+                    <input class="p-3 block w-full my-3 rounded-sm outline-none" type="email" placeholder="Email" name="email">
+                    <input class="p-3 block w-full my-3 rounded-sm outline-none" type="password" placeholder="Password" name="password">
+                    <input class="px-5 py-2 mt-1 cursor-pointer bg-blue-500 rounded-full text-white font-semibold" type="submit" value="Create New Account">
+                </form>
+            </div>
+        </div>
+        <div id="box-2" class="h-full w-[10vw] flex items-center justify-center">
+            <div id="circle" class="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center">
+                <h3 class="text-xl text-white">or</h3>
+            </div>
+        </div>
+        <div id="box-3" class="h-full w-[30vw] flex items-center justify-center">
+            <div class="w-full p-10">
+                <h3 class="text-xl text-black my-2 font-semibold">Login your account</h3>
+                <form action="/login" class="font-semibold text-zinc-700" method="post">
+                    <input type="email" class="block w-full bg-zinc-200 rounded-sm my-3 px-3 py-2 outline-none " placeholder="Email" name="email">
+                    <input type="password" class="block w-full bg-zinc-200 rounded-sm my-3 px-3 py-2 outline-none " placeholder="Password" name="password">
+                    <input class="px-5 py-1 cursor-pointer bg-blue-500 rounded-full text-white font-semibold" type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
