@@ -15,10 +15,14 @@ const userSchema = mongoose.Schema({
         required:true
     },
     cart:[
-        {type:String}
+        {type:mongoose.Schema.Types.ObjectId,
+            default:[],
+            ref:"product"
+        }
     ],
-    orders:[{
-        type:String
+    orders:[{type:mongoose.Schema.Types.ObjectId,
+        default:[],
+        ref:"product"
     }],
     phone:{
         type:String

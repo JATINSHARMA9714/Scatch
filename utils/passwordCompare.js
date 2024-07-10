@@ -10,7 +10,8 @@ module.exports.passwordCompare = ({password},user,res)=>{
         res.redirect('/home')
     }
     else{
-        console.log(err.message);
+        console.log("Something went wrong");
+        res.redirect('/')
     }
 })
 }

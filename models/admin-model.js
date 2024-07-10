@@ -23,7 +23,8 @@ const adminSchema = mongoose.Schema({
     date:{
         type:Date,
         default:Date.now
-    }
+    },
+    image:Buffer,
 })
 
 module.exports = mongoose.model("admin",adminSchema);

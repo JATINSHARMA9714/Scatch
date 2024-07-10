@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="w-full min-h-screen bg-zinc-100">
+      <nav
+        class="max-w-screen-2xl m-auto h-[10vh] bg-zinc-100 flex items-center justify-between"
+      >
+        <a
+          href="/home"
+          class="flex items-center gap-2 font-semibold text-xl cursor-pointer"
+        >
+          <i class="ri-arrow-left-line"></i>
+          <h1>Back</h1>
+        </a>
+        <h1 class="text-3xl font-bold tracking-wide">Scatch</h1>
+        <h2 class="font-semibold text-xl">Account</h2>
+      </nav>
+      <div class="max-w-screen-2xl m-auto py-3 flex gap-6  items-start">
+        <% if(cart.length!=0){ %>
+          <div class="w-[65%]">
+            <% cart.forEach((prod)=>{ %>
+                <div class="w-full h-[30vh] border-b-[2px] border-b-black p-4 flex gap-4 items-center justify-between">
+                    <div class="image w-[40%] h-full rounded-md bg-[<%= prod.bgColor %>]">
+                        <img src="data:image/png;base64,<%= prod.productImage.toString('base64') %>" class="w-full h-full object-contain p-5" alt="">
+                    </div>
+                    <div class="Description w-[60%] flex flex-col gap-3">
+                        <div class="flex items-center justify-between">
+                            <h1 class="text-2xl tracking-wide font-bold uppercase"><%= prod.productName %></h1>
+                            <a href="/home/removefromcart/<%= prod._id %>"><i class="ri-close-line text-2xl cursor-pointer"></i></a>
+                        </div>
+                        <h2 class="text-xl font-bold tracking-wider text-zinc-400"> &#x20b9 <%= prod.productPrice %></h2>
+                        <div id="bottom-part-1" class="w-full flex items-center justify-between h-[15%]">
+                            <h2 class="font-semibold text-lg uppercase text-zinc-800">Quantity</h2>
+                            <div class="flex items-center gap-1" id="buttons">
+                                <div class="w-7 h-7 bg-white rounded-full flex justify-center items-center shadow-lg"><i class="ri-add-line text-xl font-light hover:font-bold"></i></div>
+                                <div class="w-8 h-8 bg-white flex justify-center items-center shadow-lg rounded-md font-semibold text-sm">1</div>
+                                <div class="w-7 h-7 bg-white shadow-lg rounded-full flex justify-center items-center"><i class="ri-subtract-fill hover:font-bold text-xl"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="w-[35%]  bg-zinc-200 text-zinc-700 uppercase rounded-md p-4 flex flex-col gap-4 font-semibold text-lg">
+            <% cart.forEach((c)=>{ %>
+                <div class="flex items-center justify-between">
+                    <h3><%= c.productName %></h3>
+                    <h3>&#x20b9  <%= c.productPrice %></h3>
+                </div>
+            <% }) %>
+            <hr class="border-[1px] border-zinc-500">
+            <div class="flex items-center justify-between">
+                <h3>Sales Tax</h3>
+                <h3>INCLUDED</h3>
+            </div>
+            <hr class="border-[1px] border-zinc-500">
+            <%
+                let totalPrice=0
+                cart.forEach((c)=>{
+                totalPrice+= c.productPrice
+                }) 
+            %>
+            <div class="flex items-center justify-between text-zinc-800 font-bold">
+                <h3>Total Price</h3>
+                <h3>&#x20b9 <%= totalPrice %></h3>
+            </div>
+            <div class="w-[90%] m-auto bg-zinc-900 hover:bg-zinc-800 px-3 py-2 rounded-md cursor-pointer">
+                <h2 class="text-center text-zinc-100 tracking-wide">Proceed to Checkout</h2>
+            </div>
+        </div>
+        <% }else{ %>
+          <div class="w-full h-[70vh] flex items-center justify-center">
+            <h1 class="text-3xl font-semibold">Your Cart is Empty</h1>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,6 +9,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
     rel="stylesheet"
 />
+<title>Scatch : Admin</title>
 </head>
 <body>
   <div id="main" class="w-full relative h-screen bg-zinc-100">
@@ -41,13 +42,14 @@
         <div class="py-12 w-[82%] text-2xl font-semibold">
             <h2>Create New Product</h2>
             <hr class="border-[1px] border-zinc-400 my-4">
-            <form action="" method="post" class="text-sm flex flex-col gap-20"  enctype="multipart/form-data">
+            <form action="/admin/createProduct" method="POST" class="text-sm flex flex-col gap-20"  enctype="multipart/form-data">
                 <div id="top-part" class="flex flex-col gap-4 w-[40%]">
                     <h1 class="text-xl">Product Details</h1>
-                <div class="flex items-center gap-6">
+                <!-- <div class="flex items-center gap-6">
                     <h2>Product Image</h2>
                     <h2 class="px-4 py-2 bg-blue-500 text-white rounded-full cursor-pointer">Select file</h2>
-                </div>
+                </div> -->
+                <input type="file" name="productImage">
                 <input type="text" class="px-5 py-3 text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Product Name" name="productName">
                 <div class="flex gap-4">
                     <input type="number" class="px-5 py-3 text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Product Price" name="productPrice">
@@ -57,7 +59,7 @@
                 <div id="bottom-part" class="flex flex-col gap-4 w-[40%]">
                     <h1 class="text-xl">Panel Details</h1>
                     <div class="flex gap-4">
-                        <input type="text" class="px-5 py-3 text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Background Color" name="backgroundColor">
+                        <input type="text" class="px-5 py-3 text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Background Color" name="bgColor">
                         <input type="text" class="px-5 py-3 text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Panel Color" name="panelColor">
                     </div>
                     <input type="text" class="px-5 py-3 w-[42%] text-md bg-zinc-200 text-zinc-500 outline-none rounded-md " placeholder="Text Color" name="textColor">

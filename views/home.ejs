@@ -9,58 +9,69 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
     rel="stylesheet"
 />
+<title>Scatch</title>
 </head>
 <body>
   <div id="main" class="w-full relative h-screen bg-zinc-100">
     <div id="nav" class="w-full flex items-center justify-between  h-[13vh] border-2 border-b-zinc-700 py-4 px-10 pb-5">
         <div class="flex items-center">
-            <h3 class="text-2xl text-black font-semibold">Shop.</h3>
+            <h3 class="text-4xl text-black font-semibold">Shop.</h3>
         </div>
-        <div class="px-3 flex gap-20 text-black font-semibold">
-            <div class="flex gap-5">
-                <a href="">Home</a>
-                <a href="">Products</a>
-            </div>
-            <div class="flex gap-5">
-                <a href="">Cart</a>
+        <div class="px-3 flex gap-20 text-black text-xl font-semibold">
+            <div class="flex gap-10">
+                <a href="/home/cart">Cart</a>
                 <a href="">My Account</a>
             </div>
         </div>
     </div>
-    <div id="side-plus-center" class="flex w-full h-[87vh]">
-        <div id="sidebar" class="w-[18%] p-5 px-10">
-            <h3 class="mb-10 font-normal">Sort by: <select class="font-semibold" name="selection" id="" class="bg-transparent">
-                <option value="popular">Popular</option>
-            </select></h3>
-            <div id="selection-container" class="flex flex-col font-medium text-zinc-400 gap-52">
-                <div>
-                    <h3>New Collections</h3>
-                    <h3 class="text-black">All Products</h3>
-                    <h3>Discounted Products</h3>
-                </div>
-                <div>
-                    <h3 class="text-black">Filter by:</h3>
-                    <h3 class="text-black">Availibility</h3>
-                    <h3>Discounts</h3>
-                </div>
+    <div class="flex w-full h-[87vh] p-10">
+        <div class="w-[25%] flex h-full flex-col items-start">
+            <div class="flex items-center gap-2">
+                <h3 class="text-xl font-semibold">Sort by</h3>
+                <form action="/shop">
+                    <select class="border-[1px] px-2 py-1" name="sortby" id="">
+                        <option value="popular">Popular</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </form>
+            </div>
+            <div class="flex flex-col mt-20">
+                <a class="block w-fit mb-2" href="">New Collection</a>
+                <a class="block w-fit mb-2" href="">All Products</a>
+                <a class="block w-fit mb-2" href="">Discounted Products</a>
+            </div>
+            <div class="mt-32">
+                <a class="block w-fit mb-2 text-xl font-semibold" href="">Filter by :</a>
+                <a class="block w-fit mb-2 " href="">Availability</a>
+                <a class="block w-fit mb-2" href="">Discount</a>
             </div>
         </div>
-        <div id="items" class="w-[82%] flex gap-10 flex-wrap overflow-x-hidden overflow-y-auto py-5 px-20">
-            <div id="item" class="w-60 h-72">
-                <div class="w-full h-[75%] p-4 bg-blue-100 flex items-center justify-center">
-                    <img src="../images/bag.png" class="w-full h-full object-contain" alt="">
-                </div>
-                <div class="w-full p-4 h-[25%] bg-blue-300 flex items-center justify-between">
-                    <div class="font-semibold text-blue-800">
-                        <h3>Clinge Bag</h3>
-                        <h3>&#8377 1200</h3>
+        <div class="w-[75%] flex flex-col gap-5 h-full">
+            <div class="flex items-start gap-5">
+                <% products.forEach(function(product){ %>
+                    <div  class="item w-60 rounded-md overflow-hidden">
+                        <a href="/home/product/<%= product._id %>" class="w-full cursor-pointer h-52 flex items-center justify-center bg-[<%= product.bgColor %>]">
+                            <img class="w-full h-full object-contain p-2" src="data:image/png;base64,<%= product.productImage.toString('base64') %>"
+                                alt="">
+                        </a>
+                        <div
+                            class="flex justify-between bg-[<%= product.panelColor %>] items-center px-4 py-4 text-[<%= product.textcolor %>]">
+                            <div>
+                                <h3 class="font-semibold text-xl">
+                                    <%= product.productName %>
+                                </h3 >
+                                <h4 class="font-semibold">₹ <%= product.productPrice %>
+                                </h4>
+                            </div>
+                            <a id="cart" href="/home/addtocart/<%= product._id %>" class="w-9 h-9 flex items-center justify-center rounded-full bg-white" href="">
+                                <i class="ri-add-line text-xl hover:font-bold"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="w-9 h-9 bg-white rounded-full flex justify-center items-center"><i class="ri-add-large-line font-medium"></i></div>
-                </div>
+                    <% }) %>
             </div>
-            
         </div>
     </div>
-  </div>
+    <script src="../javascripts/carthandle.js"></script>
 </body>
 </html>

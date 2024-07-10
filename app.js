@@ -18,6 +18,5 @@ app.use(cookieParser())
 app.use('/',loginRoutes)
 app.use('/admin',adminRoutes)
 app.use('/home',homeRoutes)
-// app.use('/admin',adminRoutes)
 
 app.listen(process.env.PORT)
